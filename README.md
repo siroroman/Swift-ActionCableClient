@@ -140,3 +140,4 @@ Daniel Rhodes, rhodes.daniel@gmail.com
 ## License
 
 ActionCableClient is available under the MIT license. See the LICENSE file for more info.
+
