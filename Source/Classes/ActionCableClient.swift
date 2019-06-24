@@ -29,6 +29,7 @@ open class ActionCableClient {
   
     //MARK: Socket
     fileprivate(set) var socket : WebSocket
+    fileprivate let queue = DispatchQueue(label: "Custom_Queue")
     
     /// Reconnection Strategy
     ///
@@ -419,6 +420,7 @@ extension ActionCableClient {
     }
     
     fileprivate func onMessage(_ message: Message) {
+         queue.sync {
             switch(message.messageType) {
             case .unrecognized:
                 break
@@ -478,6 +480,7 @@ extension ActionCableClient {
                     }
                 }
             }
+        }
     }
     
     fileprivate func onData(_ data: Data) {
